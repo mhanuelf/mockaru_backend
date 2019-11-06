@@ -1,13 +1,14 @@
 'user strict';
 
 var mysql = require('mysql');
+const dbConfig = require("../config/db.config.js");
 
 //local mysql db connection
 var connection = mysql.createConnection({
-    host     : '35.188.28.195',
-    user     : 'mockaru',
-    password : 'kh27mr19fz',
-    database : 'mockaru'
+    host     : dbConfig.HOST,
+    user     : dbConfig.USER,
+    password : dbConfig.PASSWORD,
+    database : dbConfig.DB
 });
 
 connection.connect(function(err) {
