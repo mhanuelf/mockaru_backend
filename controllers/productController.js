@@ -9,7 +9,7 @@ exports.product_detail = function(req, res) {
         if (err)
           res.send(err);
           console.log('res', product);
-        res.send(table(product));
+        res.send(product);
       });
   
 
