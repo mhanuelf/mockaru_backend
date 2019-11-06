@@ -1,13 +1,26 @@
-//var Author = require('../models/clients');
+var Client = require('../models/clients');
 
 // Display list of all Authors.
 exports.client_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author list');
+  
+
+    
+    res.send('UNDER CONSTRUCTION: Client list');
+
 };
 
 // Display detail page for a specific Author.
 exports.client_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author detail: ' + req.params.id);
+    Client.getClientById(function(err, client) {
+
+        console.log('controller')
+        if (err)
+          res.send(err);
+          console.log('res', client);
+        res.send(client);
+      });
+  //  res.send('UNDER CONSTRUCTION: CLIENT detail: ' + req.params.id);
+
 };
 
 // Display Client create form on GET.
