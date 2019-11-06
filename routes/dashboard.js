@@ -9,7 +9,7 @@ var product_controller = require("../controllers/productController");
 router.get('/client/:id', client_controller.client_detail);
 
 //GET PQR per product type
-router.get('/pqr/producttype', pqr_controller.pqr_list);
+router.get('/pqr/producttype/', pqr_controller.pqr_list);
 
 
 //GET PQR per client 
@@ -17,5 +17,8 @@ router.get('/pqr/client', pqr_controller.pqr_per_client);
 
 //GET Product by id  
 router.get('/product/:productId', product_controller.product_detail);
+
+//GET PQR by productType  
+router.get('/pqr/:productTypeId', pqr_controller.pqr_per_product_type);
 
 module.exports = router;

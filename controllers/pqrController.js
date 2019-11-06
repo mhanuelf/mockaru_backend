@@ -27,6 +27,19 @@ exports.pqr_per_client = function (req, result) {
 
 };
 
+
+exports.pqr_per_product_type = function (req, result) {
+console.log(req.params);
+  Pqr.getListPqrPerProductType(req.params.productTypeId,function (err, pqrList) {
+    console.log("controller Pqr per productType controller"+req.params.productType);
+    if (err)
+      result.send(err);
+    // console.log('res', pqrList);
+    result.send(table(pqrList));
+  });
+
+};
+
 function table(respuesta) {
   let respuesta_front = [];
   for (var k in respuesta) {

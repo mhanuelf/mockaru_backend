@@ -9,11 +9,23 @@ exports.product_detail = function(req, res) {
         if (err)
           res.send(err);
           console.log('res', product);
-        res.send(product);
+        res.send(table(product));
       });
   
 
 };
+
+
+function table(respuesta) {
+  let respuesta_front = [];
+  for (var k in respuesta) {
+    if (k == 0)
+      respuesta_front.push(Object.keys(respuesta[k]));
+    respuesta_front.push(Object.values(respuesta[k]));
+
+  }
+  return (respuesta_front);
+}
 
 
 
