@@ -8,7 +8,7 @@ var Pqr = function(pqr){
 
 Pqr.getListPqrPerProduct = function (clientId, result) {
     console.log("Getting PQR per productType --");
-    var sqlQuery= "select count(p.TIPO_PRODUCTO) as CANTIDAD, c.DESCRIPCION AS PRODUCTO  from INFO_PQR p , INFO_CATALOGO c where p.TIPO_PRODUCTO = c.TIPO_PRODUCTO group by p.TIPO_PRODUCTO,  c.DESCRIPCION";
+    var sqlQuery= "select  c.DESCRIPCION AS PRODUCTO,count(p.TIPO_PRODUCTO) as CANTIDAD  from INFO_PQR p , INFO_CATALOGO c where p.TIPO_PRODUCTO = c.TIPO_PRODUCTO group by p.TIPO_PRODUCTO,  c.DESCRIPCION";
     sql.query(sqlQuery, clientId, 
         function (err, res) {             
                 if(err) {
