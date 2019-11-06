@@ -1,0 +1,30 @@
+{
+  "name": "mockaruproject",
+  "version": "1.0.0",
+  "description": "mockaru hackathon project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mhanuelf/mockaru_backend.git"
+  },
+  "keywords": [
+    "mockaru",
+    "hackathon"
+  ],
+  "author": "mockaru team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhanuelf/mockaru_backend/issues"
+  },
+  "homepage": "https://github.com/mhanuelf/mockaru_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
