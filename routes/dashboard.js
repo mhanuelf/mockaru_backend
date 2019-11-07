@@ -38,7 +38,7 @@ router.get("/channel/:clientId", channel_controller.list_channels_by_client_id);
 
 //GET CLIENTVALUE BY VALUE
 router.get(
-  "/client/:value1/:value2/:value3/:value4",
+  "/client/:value1/:value2/:value3",
   client_controller.client_value
 );
 

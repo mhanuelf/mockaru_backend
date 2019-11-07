@@ -5,7 +5,6 @@ exports.pqr_list = function(req, result) {
   Pqr.getListPqrPerProduct(function(err, pqrList) {
     console.log("controller pqr per product..........");
     if (err) result.send(err);
-    // console.log('res', pqrList);
     result.send(pie(pqrList));
   });
 };

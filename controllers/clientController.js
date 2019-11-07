@@ -42,11 +42,10 @@ exports.client_value = function(req, res) {
     req.params.value1,
     req.params.value2,
     req.params.value3,
-    req.params.value4,
     function(err, client) {
       console.log(
-        "controller client finantial information by clientId " +
-          req.params.clientId
+        "controller client finantial information by ....magic " +
+          req.params.value1+"-"+req.params.value2+"-"+req.params.value3
       );
       if (err) res.send(err);
       res.send(client);

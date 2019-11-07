@@ -49,16 +49,16 @@ Client.getClientFinantialInformationByClientId = function(clientId, result) {
   );
 };
 
-Client.getClientValue = function(value1, value2, value3, value4, result) {
+Client.getClientValue = function(value1, value2, value3, result) {
   console.log(
-    "Consultando informacion de valor clientes:" + value1 + "-" + value2
+    "Consultando informacion de valor clientes:" + value1 + "-" + value2+"-"+value3
   );
-  sql.query(querys.CLIENT_MAGIC, [value1, value2, value3, value4], function(
+  sql.query(querys.CLIENT_MAGIC, [value1, value2, value3], function(
     err,
     res
   ) {
     if (err) {
-      console.log("errormmmm: ", err);
+      console.log("error: ", err);
       result(err, null);
     } else {
       result(null, res);
