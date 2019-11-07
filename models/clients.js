@@ -16,9 +16,9 @@ Client.getClientById = function(clientId, result) {
   });
 };
 
-Client.getClientByComplain = function(description, result) {
-  console.log("Consultando clientes por queja:" + description);
-  sql.query(querys.CLIENT_LIST_CLIENT_BY_COMPLAIN, [description], function(
+Client.getClientByComplain = function(radicationType,description, result) {
+  console.log("Consultando clientes por queja:" + radicationType+"-"+description);
+  sql.query(querys.CLIENT_LIST_CLIENT_BY_COMPLAIN, [description,radicationType], function(
     err,
     res
   ) {
@@ -51,12 +51,30 @@ Client.getClientFinantialInformationByClientId = function(clientId, result) {
 
 Client.getClientValue = function(value1, value2, value3, result) {
   console.log(
-    "Consultando informacion de valor clientes:" + value1 + "-" + value2+"-"+value3
+    "Consultando informacion de valor clientes:" +
+      value1 +
+      "-" +
+      value2 +
+      "-" +
+      value3
   );
-  sql.query(querys.CLIENT_MAGIC, [value1, value2, value3], function(
-    err,
-    res
-  ) {
+  sql.query(querys.CLIENT_MAGIC, [value1, value2, value3], function(err, res) {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+    } else {
+      result(null, res);
+    }
+  });
+};
+
+
+Client.getClientComplainsByClientId = function(clientId, result) {
+  console.log(
+    "Consultando quejas por cliente :" +
+      clientId
+  );
+  sql.query(querys.CLIENT_COMPLAIN_BY_CLIENT_ID, [clientId], function(err, res) {
     if (err) {
       console.log("error: ", err);
       result(err, null);

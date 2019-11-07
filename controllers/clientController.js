@@ -15,8 +15,8 @@ exports.client_detail = function(req, res) {
 };
 
 exports.list_clients_by_complain = function(req, res) {
-  Client.getClientByComplain(req.params.complain, function(err, client) {
-    console.log("controller client by complain " + req.params.complain);
+  Client.getClientByComplain(req.params.radicationType,req.params.complain, function(err, client) {
+    console.log("controller client by complain " + req.params.complain+"-"+req.params.radicationType);
     if (err) res.send(err);
     res.send(client);
   });
@@ -46,6 +46,21 @@ exports.client_value = function(req, res) {
       console.log(
         "controller client finantial information by ....magic " +
           req.params.value1+"-"+req.params.value2+"-"+req.params.value3
+      );
+      if (err) res.send(err);
+      res.send(client);
+    }
+  );
+};
+
+// Display Client create form on GET.
+exports.client_complain_by_client_id = function(req, res) {
+  Client.getClientComplainsByClientId(
+    req.params.clientId,
+    function(err, client) {
+      console.log(
+        "controller client complains by clientId" +
+          req.params.clientId
       );
       if (err) res.send(err);
       res.send(client);

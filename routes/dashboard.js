@@ -23,7 +23,7 @@ router.get("/pqr/:productTypeId", pqr_controller.pqr_per_product_type);
 
 //GET CLIENTS BY COMPLAIN
 router.get(
-  "/client/complain/:complain",
+  "/client/complain/:radicationType/:complain",
   client_controller.list_clients_by_complain
 );
 
@@ -40,6 +40,11 @@ router.get("/channel/:clientId", channel_controller.list_channels_by_client_id);
 router.get(
   "/client/:value1/:value2/:value3",
   client_controller.client_value
+);
+
+router.get(
+  "/complain/client/:clientId",
+  client_controller.client_complain_by_client_id
 );
 
 module.exports = router;
