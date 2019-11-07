@@ -1,5 +1,5 @@
 var sql = require('./db.js');
-
+const querys =require('../config/db.querys.js')
 //Client object constructor
 var Pqr = function (pqr) {
 
@@ -8,8 +8,7 @@ var Pqr = function (pqr) {
 
 Pqr.getListPqrPerProduct = function (clientId, result) {
     console.log("Getting PQR per productType --");
-    var sqlQuery = "select  c.DESCRIPCION AS PRODUCTO,count(p.TIPO_PRODUCTO) as CANTIDAD, c.TIPO_PRODUCTO  from INFO_PQR p , INFO_CATALOGO c where p.TIPO_PRODUCTO = c.TIPO_PRODUCTO group by p.TIPO_PRODUCTO,  c.DESCRIPCION";
-    sql.query(sqlQuery, clientId,
+    sql.query(querys.PQR_LIST_PQR_PER_PRODUCT_TYPE, clientId,
         function (err, res) {
             if (err) {
                 //console.log("errormmmm: ", err);
@@ -48,9 +47,9 @@ Pqr.getListPqrPerClient = function (clientId, result) {
 
 Pqr.getListPqrPerProductType = function (productTypeId, result) {
     console.log("Consultando PQR por  tipo de producto DB"+productTypeId);
-    var sqlQuery = "select TIPO_RADICACION, DESCRIPCION_CASO, count(TIPO_RADICACION) as cantidad_quejas, count(distinct NUMERO_IDENTIFICACION) as cantidad_clientes from INFO_PQR where TIPO_PRODUCTO = '"+
-    productTypeId+"' group by DESCRIPCION_CASO, TIPO_RADICACION    order by cantidad_quejas desc";
-    sql.query(sqlQuery, productTypeId,
+    //var sqlQuery = "select TIPO_RADICACION, DESCRIPCION_CASO, count(TIPO_RADICACION) as cantidad_quejas, count(distinct NUMERO_IDENTIFICACION) as cantidad_clientes from INFO_PQR where TIPO_PRODUCTO = '"+
+    //productTypeId+"' group by DESCRIPCION_CASO, TIPO_RADICACION    order by cantidad_quejas desc";
+    sql.query(querys.GET_PQR_BY_PRODUCT_TYPE, [productTypeId],
         function (err, res) {
             if (err) {
                 console.log("errormmmm: ", err);

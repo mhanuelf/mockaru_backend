@@ -7,14 +7,26 @@ exports.client_list = function(req, res) {
 
 // Display detail page for a specific Client.
 exports.client_detail = function(req, res) {
-    Client.getClientById(function(err, client) {
-        console.log('controller client by id')
+    Client.getClientById(req.params.id,function(err, client) {
+        console.log('controller client by id'+req.params.id)
         if (err)
           res.send(err);
           console.log('res', client);
         res.send(client);
       });
   //  res.send('UNDER CONSTRUCTION: CLIENT detail: ' + req.params.id);
+
+};
+
+exports.list_clients_by_complain =function(req, res) {
+  Client.getClientByComplain(req.params.complain,function(err, client) {
+      console.log('controller client by complain '+req.params.complain)
+      if (err)
+        res.send(err);
+        console.log('res', client);
+      res.send(client);
+    });
+//  res.send('UNDER CONSTRUCTION: CLIENT detail: ' + req.params.id);
 
 };
 

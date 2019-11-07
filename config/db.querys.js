@@ -1,0 +1,9 @@
+
+//PQR QUERYS
+
+module.exports = {
+    PQR_LIST_PQR_PER_PRODUCT_TYPE: "select  c.DESCRIPCION AS PRODUCTO,count(p.TIPO_PRODUCTO) as CANTIDAD, c.TIPO_PRODUCTO  from INFO_PQR p , INFO_CATALOGO c where p.TIPO_PRODUCTO = c.TIPO_PRODUCTO group by p.TIPO_PRODUCTO,  c.DESCRIPCION",
+    GET_PQR_BY_PRODUCT_TYPE: "select TIPO_RADICACION, DESCRIPCION_CASO, count(TIPO_RADICACION) as cantidad_quejas, count(distinct NUMERO_IDENTIFICACION) as cantidad_clientes from INFO_PQR where TIPO_PRODUCTO = ? group by DESCRIPCION_CASO, TIPO_RADICACION    order by cantidad_quejas desc",
+    CLIENT_LIST_CLIENT_BY_COMPLAIN: "SELECT concat(cli.NOMBRES, cli.APELLIDOS) as nombre, COALESCE(cli.TELEFONO, 'N/A') as telefono, COALESCE(cli.EMAIL, 'N/A') as email FROM mockaru.INFO_CLIENTE cli, INFO_PQR p where p.NUMERO_IDENTIFICACION = cli.NUMERO_IDENTIFICACION and p.DESCRIPCION_CASO = ?"
+    
+  };

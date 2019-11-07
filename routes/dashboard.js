@@ -21,4 +21,7 @@ router.get('/product/:productId', product_controller.product_detail);
 //GET PQR by productType  
 router.get('/pqr/:productTypeId', pqr_controller.pqr_per_product_type);
 
+//GET CLIENTS BY COMPLAIN
+router.get('/client/complain/:complain',client_controller.list_clients_by_complain);
+
 module.exports = router;
