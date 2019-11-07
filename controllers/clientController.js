@@ -37,9 +37,14 @@ exports.list_client_finantial_information_by_clientid =function(req, res) {
 };
 
 // Display Client create form on GET.
-exports.client_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Author create GET');
-};
+exports.client_value = function(req, res) {
+  Client.getClientValue(req.params.value1,req.params.value2,req.params.value3,req.params.value4,function(err, client) {
+    console.log('controller client finantial information by clientId '+req.params.clientId)
+    if (err)
+      res.send(err);
+    res.send(client);
+  });
 
+};
 
 

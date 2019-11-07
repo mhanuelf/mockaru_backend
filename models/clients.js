@@ -55,5 +55,22 @@ Client.getClientFinantialInformationByClientId =function (clientId, result) {
 
 
 
+Client.getClientValue =function (value1,value2,value3,value4, result) {
+    console.log("Consultando informacion de valor clientes:"+value1+"-"+value2);
+    sql.query(querys.CLIENT_MAGIC, [value1,value2,value3,value4], 
+    function (err, res) {             
+            if(err) {
+                console.log("errormmmm: ", err);
+                result(err, null);
+            }
+            else{
+                result(null, res);
+          
+            }
+        });   
+};
+
+
+
 
 module.exports= Client;

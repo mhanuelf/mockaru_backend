@@ -31,4 +31,8 @@ router.get('/client/finantial/:clientId',client_controller.list_client_finantial
 //GET CHANNELS BY CLIENT ID
 router.get('/channel/:clientId',channel_controller.list_channels_by_client_id);
 
+
+//GET CLIENTVALUE BY VALUE
+router.get('/client/:value1/:value2/:value3/:value4',client_controller.client_value);
+
 module.exports = router;
