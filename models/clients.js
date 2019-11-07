@@ -9,8 +9,7 @@ var Client = function(client){
 
 Client.getClientById = function (clientId, result) {
     console.log("Consultando clientes por id:"+clientId);
-    var sqlQuery="Select DESCRIPCION ,APLICATIVO  from INFO_CATALOGO where ID_PRODUCTO = ?";
-    sql.query(sqlQuery, [clientId], 
+    sql.query(querys.CLIENT_GET_CLIENT_BY_ID, [clientId], 
     function (err, res) {             
             if(err) {
                 console.log("errormmmm: ", err);
