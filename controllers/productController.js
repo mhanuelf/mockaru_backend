@@ -9,7 +9,24 @@ exports.product_detail = function(req, res) {
         if (err)
           res.send(err);
           console.log('res', product);
-        res.send(product);
+          let data = {
+            name: "",
+            quejas: 0,
+            peticiones: 0,
+            reclamos: 0
+            };
+            for (var k in product) {
+              console.log('FUCKKKKKKKKKK',product[k])
+              data.name = product[k].DESCRIPCION;
+              if(product[k].TIPO_RADICACION == 'P')
+              data.peticiones =product[k].CANTIDAD;
+              if(product[k].TIPO_RADICACION == 'Q')
+              data.quejas =product[k].CANTIDAD;
+              if(product[k].TIPO_RADICACION == 'R')
+              data.reclamos =product[k].CANTIDAD;
+            }
+
+        res.send(data);
       });
   
 
