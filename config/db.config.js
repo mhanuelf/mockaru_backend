@@ -3,5 +3,5 @@ module.exports = {
     USER: "mockaru",
     PASSWORD: "kh27mr19fz",
     DB: "mockaru",
-    DEBUG: true
+    DEBUG: false
   };

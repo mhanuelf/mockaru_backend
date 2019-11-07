@@ -12,7 +12,7 @@ exports.client_detail = function(req, res) {
         if (err)
           res.send(err);
           console.log('res', client);
-        res.send(client);
+        res.send(client[0]);
       });
 };
 
