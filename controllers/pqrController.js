@@ -35,7 +35,7 @@ console.log(req.params);
     if (err)
       result.send(err);
     // console.log('res', pqrList);
-    result.send(table(pqrList));
+    result.send((pqrList));
   });
 
 };

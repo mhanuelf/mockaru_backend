@@ -14,8 +14,6 @@ exports.client_detail = function(req, res) {
           console.log('res', client);
         res.send(client);
       });
-  //  res.send('UNDER CONSTRUCTION: CLIENT detail: ' + req.params.id);
-
 };
 
 exports.list_clients_by_complain =function(req, res) {
@@ -26,7 +24,6 @@ exports.list_clients_by_complain =function(req, res) {
         console.log('res', client);
       res.send(client);
     });
-//  res.send('UNDER CONSTRUCTION: CLIENT detail: ' + req.params.id);
 
 };
 
