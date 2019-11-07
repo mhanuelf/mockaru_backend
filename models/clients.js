@@ -16,7 +16,6 @@ Client.getClientById = function (clientId, result) {
                 result(err, null);
             }
             else{
-                console.log("Respuesta",res);
                 result(null, res);
           
             }
@@ -33,11 +32,28 @@ Client.getClientByComplain =function (description, result) {
                 result(err, null);
             }
             else{
-                console.log("Respuesta",res);
                 result(null, res);
           
             }
         });   
 };
+
+Client.getClientFinantialInformationByClientId =function (clientId, result) {
+    console.log("Consultando informacion financiera de clientes por client Id:"+clientId);
+    sql.query(querys.CLIENT_GET_FINNANTIAL_DATA_BY_CLIENT_ID, [clientId], 
+    function (err, res) {             
+            if(err) {
+                console.log("errormmmm: ", err);
+                result(err, null);
+            }
+            else{
+                result(null, res);
+          
+            }
+        });   
+};
+
+
+
 
 module.exports= Client;

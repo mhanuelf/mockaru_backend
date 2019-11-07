@@ -21,7 +21,6 @@ exports.pqr_per_client = function (req, result) {
     console.log("controller Pqr per client list");
     if (err)
       result.send(err);
-    // console.log('res', pqrList);
     result.send(table(pqrList));
   });
 
@@ -34,7 +33,6 @@ console.log(req.params);
     console.log("controller Pqr per productType controller"+req.params.productType);
     if (err)
       result.send(err);
-    // console.log('res', pqrList);
     result.send((pqrList));
   });
 

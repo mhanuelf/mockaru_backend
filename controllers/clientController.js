@@ -11,7 +11,6 @@ exports.client_detail = function(req, res) {
         console.log('controller client by id'+req.params.id)
         if (err)
           res.send(err);
-          console.log('res', client);
         res.send(client[0]);
       });
 };
@@ -21,7 +20,17 @@ exports.list_clients_by_complain =function(req, res) {
       console.log('controller client by complain '+req.params.complain)
       if (err)
         res.send(err);
-        console.log('res', client);
+      res.send(client);
+    });
+
+};
+
+
+exports.list_client_finantial_information_by_clientid =function(req, res) {
+  Client.getClientFinantialInformationByClientId(req.params.clientId,function(err, client) {
+      console.log('controller client finantial information by clientId '+req.params.clientId)
+      if (err)
+        res.send(err);
       res.send(client);
     });
 

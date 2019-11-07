@@ -15,7 +15,6 @@ Product.getProductById = function (productId, result) {
             result(err, null);
         }
         else {
-            console.log("Respuesta", res);
             result(null, res);
 
         }

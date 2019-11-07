@@ -37,7 +37,6 @@ Pqr.getListPqrPerClient = function (clientId, result) {
                 result(err, null);
             }
             else {
-                console.log("Respuesta", res);
                 result(null, res);
 
             }
@@ -47,8 +46,6 @@ Pqr.getListPqrPerClient = function (clientId, result) {
 
 Pqr.getListPqrPerProductType = function (productTypeId, result) {
     console.log("Consultando PQR por  tipo de producto DB"+productTypeId);
-    //var sqlQuery = "select TIPO_RADICACION, DESCRIPCION_CASO, count(TIPO_RADICACION) as cantidad_quejas, count(distinct NUMERO_IDENTIFICACION) as cantidad_clientes from INFO_PQR where TIPO_PRODUCTO = '"+
-    //productTypeId+"' group by DESCRIPCION_CASO, TIPO_RADICACION    order by cantidad_quejas desc";
     sql.query(querys.GET_PQR_BY_PRODUCT_TYPE, [productTypeId],
         function (err, res) {
             if (err) {
@@ -56,7 +53,6 @@ Pqr.getListPqrPerProductType = function (productTypeId, result) {
                 result(err, null);
             }
             else {
-                console.log("Respuesta", res);
                 result(null, res);
 
             }
